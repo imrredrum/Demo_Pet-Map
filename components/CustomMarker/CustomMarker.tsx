@@ -42,7 +42,6 @@ const ResultMarkers: React.FC = () => {
     ? result.map(r => (
         <ResultMarker
           key={r.id}
-          id={r.id}
           clickable
           position={{ lat: r.latitude, lng: r.longitude }}
           onClick={handleMarkerClick(r.id)}

@@ -38,7 +38,7 @@ const FilterPanel: React.FC = () => {
           onChange={e => {
             const value = e.target.value
             updateStoreFilter(
-              typeof value === 'string' ? value.split(',').map(Number) : value,
+              typeof value === 'string' ? value.split(',') : value,
             )
           }}
           inputProps={{
@@ -65,7 +65,7 @@ const FilterPanel: React.FC = () => {
           onChange={e => {
             const value = e.target.value
             updateFriendlyFilter(
-              typeof value === 'string' ? value.split(',').map(Number) : value,
+              typeof value === 'string' ? value.split(',') : value,
             )
           }}
           inputProps={{
