@@ -1,9 +1,12 @@
+'use client'
+
 import { Fab } from '@mui/material'
-import ApiDialog from './KeyDialog'
+import KeyDialog from './KeyDialog'
 import { useState } from 'react'
+import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded'
 
 const KeyInject: React.FC = () => {
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(false)
 
   const handleFabClick = () => {
     setOpen(true)
@@ -15,8 +18,23 @@ const KeyInject: React.FC = () => {
 
   return (
     <>
-      <Fab onClick={handleFabClick}></Fab>
-      <ApiDialog open={open} onClose={handleClose} />
+      <Fab
+        onClick={handleFabClick}
+        size='small'
+        color='default'
+        sx={{
+          borderColor: 'primary.main',
+          borderWidth: 1,
+          borderStyle: 'solid',
+          bgcolor: 'background.paper',
+          '&:hover': {
+            bgcolor: 'background.paper',
+          },
+        }}
+      >
+        <SettingsRoundedIcon color='primary' />
+      </Fab>
+      <KeyDialog open={open} onClose={handleClose} />
     </>
   )
 }

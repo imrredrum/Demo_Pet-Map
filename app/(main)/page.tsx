@@ -1,4 +1,5 @@
 import FilterPanel from '@/components/FilterPanel'
+import KeyInject from '@/components/KeyInject'
 import Location from '@/components/Location'
 import MapContainer from '@/components/MapContainer'
 import ResultFetchLayer from '@/components/ResultFetchLayer'
@@ -47,6 +48,7 @@ const MainPage: React.FC = () => (
         right: 24,
       }}
     >
+      <KeyInject />
       <SearchResult />
       <Location />
     </Stack>
