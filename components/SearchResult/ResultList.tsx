@@ -13,10 +13,9 @@ import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded'
 import ReadMoreRoundedIcon from '@mui/icons-material/ReadMoreRounded'
 import PlaceCard, { PlaceCardSkeleton } from '../PlaceCard'
 import NextLink from '../NextLink'
-import { useEffect, useId, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 
 const ResultList: React.FC = () => {
-  const favoriteId = useId()
   const loading = useResultStore(s => s.loading)
   const result = useResultStore(s => s.result)
   const focusedResult = useResultStore(s => s.focusedResult)
@@ -29,7 +28,7 @@ const ResultList: React.FC = () => {
   const onAddFavorite = (place: Result) => () => {
     addFavoriteStore({
       ...place,
-      favoriteId: favoriteId,
+      favoriteId: crypto.randomUUID(), // Generate a unique ID for the favorite
       addedAt: new Date(),
     })
   }

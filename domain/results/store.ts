@@ -8,11 +8,13 @@ export type ResultStore = {
   loading: boolean
 }
 
-const useResultStore = create<ResultStore>(() => ({
+const InitialResultStore: ResultStore = {
   focusedResult: null,
   result: [],
   loading: false,
-}))
+}
+
+const useResultStore = create<ResultStore>(() => InitialResultStore)
 
 export default useResultStore
 
@@ -37,4 +39,14 @@ const blurResult = () => {
   useResultStore.setState({ focusedResult: null })
 }
 
-export { updateResult, updateResultLoading, focusOnResult, blurResult }
+const resetResultStore = () => {
+  useResultStore.setState(InitialResultStore)
+}
+
+export {
+  updateResult,
+  updateResultLoading,
+  focusOnResult,
+  blurResult,
+  resetResultStore,
+}

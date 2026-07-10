@@ -27,8 +27,12 @@ const updateCenter = (center: MapCameraProps['center'] | null) => {
   if (DEFAULT_CAMERA.zoom) map.setZoom(DEFAULT_CAMERA.zoom)
 }
 
+const resetCenter = () => {
+  useMapStore.setState({ center: null })
+}
+
 const resetMapStore = () => {
   useMapStore.setState({ map: null, center: null })
 }
 
-export { setMap, updateCenter, resetMapStore }
+export { setMap, updateCenter, resetCenter, resetMapStore }

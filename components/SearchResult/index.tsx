@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react'
 import ResultDrawer from './ResultDrawer'
 import ResultFloatingBtn from './ResultFloatingBtn'
 import ResultList from './ResultList'
-import useResultStore from '@/domain/results/store'
+import useResultStore, { resetResultStore } from '@/domain/results/store'
+import { resetCenter } from '@/domain/map/store'
 
 const SearchResult: React.FC = () => {
   const focusedResult = useResultStore(s => s.focusedResult)
@@ -23,6 +24,13 @@ const SearchResult: React.FC = () => {
     const timer = setTimeout(() => setOpen(true), 0)
     return () => clearTimeout(timer)
   }, [focusedResult])
+
+  useEffect(() => {
+    return () => {
+      resetCenter()
+      resetResultStore()
+    }
+  }, [])
 
   return (
     <>
